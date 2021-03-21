@@ -1,10 +1,12 @@
 ''' Implementation of transcription text parser that transforms text based on certain phrases '''
 
 def transcribe(text):
+  # split the text with Number n
   x = text.split("Number ", 1)
   bulletpoint = x[1]
   number = bulletpoint.split(' ')[0].lower()
 
+  # switch the number to digit
   if number == 'one':
     index = 1
   elif number == 'two':
@@ -24,10 +26,9 @@ def transcribe(text):
   elif number == 'nine':
     index = 9;
 
-y = bulletpoint.split("Number next ")
+  # split bullet points 
+  y = bulletpoint.split("Number next ")
 
-print(x[0])
-for count, point in enumerate(y):
-  print(str(index+count) +'. '+ point.capitalize())
-
-  
+  print(x[0])
+  for count, point in enumerate(y):
+    print(str(index+count) +'. '+ point.capitalize())
